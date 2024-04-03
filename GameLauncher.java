@@ -27,7 +27,7 @@ class GameLauncher {
         // TDD
         testCase1();
         testCase2();
-
+        testCase3();
     }
 
     public static void testCase1 () {
@@ -75,6 +75,34 @@ class GameLauncher {
 
         // Output
         System.out.println("Test 2:");
+        System.out.println("Expected : PASSED");
+        System.out.println("Result   : " + testResult);
+        // ========= END TEST =========
+    }
+
+    public static void testCase3 () {
+        // ========= START TEST =========
+        String testResult = "FAILED";
+
+        // Init Ship
+        Ship ship = new Ship();
+
+        // Init Locations
+        int[] locations = {2,3,4};
+        ship.setLocations(locations);
+
+        // Guessing
+        int[] userGuesses = locations;
+        String result = null;
+        for (int userGuess : userGuesses) {
+            result = ship.healthCheck(userGuess);
+        }
+
+        // Check Result
+        if (result == "KILL") testResult = "PASSED";
+
+        // Output
+        System.out.println("Test 3:");
         System.out.println("Expected : PASSED");
         System.out.println("Result   : " + testResult);
         // ========= END TEST =========
